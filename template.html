@@ -1,0 +1,378 @@
+<title>Graduation Blueprint</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: three-step working tool — pick a starting record, set goals in a narrow rail, read the answer and plan in the main column. */
+:root{
+  --bg:#f5f3f8; --surface:#ffffff; --sunk:#efecf4; --ink:#1c1626; --muted:#625b70; --line:#dfdae7;
+  --accent:#4d1979; --accent-ink:#ffffff; --accent-soft:#ece4f5;
+  --ok:#1d7146; --ok-soft:#e2f2e9; --warn:#9a5600; --warn-soft:#fbefdc; --bad:#ad2a22; --bad-soft:#fbe6e4; --info:#3a5a8c; --info-soft:#e5edf8;
+  --f-display:"Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --f-body:"Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#131018; --surface:#1c1822; --sunk:#17141d; --ink:#ece7f4; --muted:#a39bb1; --line:#2f2939;
+  --accent:#c4a1ee; --accent-ink:#1a1222; --accent-soft:#2b2238;
+  --ok:#62d29a; --ok-soft:#173226; --warn:#f3ac55; --warn-soft:#382811; --bad:#ff8b80; --bad-soft:#3a1a18; --info:#8fb4ee; --info-soft:#1a2639; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#131018; --surface:#1c1822; --sunk:#17141d; --ink:#ece7f4; --muted:#a39bb1; --line:#2f2939;
+  --accent:#c4a1ee; --accent-ink:#1a1222; --accent-soft:#2b2238;
+  --ok:#62d29a; --ok-soft:#173226; --warn:#f3ac55; --warn-soft:#382811; --bad:#ff8b80; --bad-soft:#3a1a18; --info:#8fb4ee; --info-soft:#1a2639; color-scheme:dark }
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mono{font-family:var(--f-mono);font-size:.86em;letter-spacing:-.01em}
+.muted{color:var(--muted)}
+a{color:var(--accent)}
+.wrap{max-width:1320px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.top{border-bottom:1px solid var(--line);background:var(--surface)}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;padding-block:14px}
+.top h1{font-family:var(--f-display);font-weight:700;font-size:1.45rem;margin:0;letter-spacing:-.02em}
+.top h1 span{color:var(--accent)}
+.top p{margin:0;color:var(--muted)}
+.top .meta{margin-left:auto;font-size:.8rem;color:var(--muted)}
+.viewnav{flex-basis:100%;display:flex;gap:4px;overflow-x:auto;margin-top:6px}
+.viewnav button{border:0;background:none;padding:6px 12px;border-radius:999px;font-weight:600;font-size:.88rem;color:var(--muted);cursor:pointer;white-space:nowrap}
+.viewnav button:hover{color:var(--ink);background:var(--sunk)}
+.viewnav button[aria-current="page"]{background:var(--accent);color:var(--accent-ink)}
+.viewpad{padding-block:20px 48px}
+.costgrid{display:grid;grid-template-columns:minmax(260px,320px) minmax(0,1fr);gap:20px;padding-block:14px 0}
+@media (max-width:820px){.costgrid{grid-template-columns:minmax(0,1fr)}}
+.levels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:700px){.levels{grid-template-columns:minmax(0,1fr)}}
+.lvl{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:6px;min-width:0}
+.lvlhead{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.lvl .big{font-family:var(--f-display);font-size:1.6rem;font-weight:700;font-variant-numeric:tabular-nums}
+.lvl .big small{font-family:var(--f-body);font-size:.82rem;font-weight:500;color:var(--muted)}
+.bar{height:8px;border-radius:4px;background:var(--sunk);overflow:hidden;display:flex}
+.bar i,.sw{display:inline-block;height:100%}
+.sw{width:10px;height:10px;border-radius:2px}
+.b1{background:var(--accent)} .b2{background:color-mix(in srgb,var(--accent) 50%,transparent)} .b3{background:color-mix(in srgb,var(--accent) 22%,transparent)}
+.prog table td:first-child{width:170px;white-space:nowrap}
+.prog table td:last-child{width:48px;text-align:right}
+.sugmini{margin:0;padding-left:18px;display:grid;gap:2px;font-size:.88rem}
+.sugmini b{font-weight:600}
+.examlist{display:flex;flex-wrap:wrap;gap:6px}
+.examlist .chip{white-space:normal}
+.examlist button{border:0;background:none;color:var(--muted);cursor:pointer;padding:0 0 0 2px;font-size:.9rem}
+.examadd{display:grid;grid-template-columns:70px minmax(0,1fr) 80px auto;gap:6px;align-items:center}
+.examadd input{width:100%;background:var(--sunk);border:1px solid var(--line);border-radius:7px;padding:7px 9px}
+.demo-btn{margin-left:8px}
+.tabs .more{color:var(--accent)}
+.tour{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:0 max(16px, env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));pointer-events:none}
+.tour-in{pointer-events:auto;max-width:640px;margin:0 auto;background:var(--surface);border:2px solid var(--accent);border-radius:14px;padding:14px 16px;box-shadow:0 12px 40px rgba(28,22,38,.25);display:grid;gap:6px}
+.tour-top{display:flex;justify-content:space-between;align-items:center}
+.tour h3{margin:0;font-family:var(--f-display);font-size:1.1rem}
+.tour p{margin:0;font-size:.9rem;color:var(--muted)}
+.tour-nav{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:4px}
+.spot{outline:3px solid var(--warn);outline-offset:3px;border-radius:10px;transition:outline-color .2s}
+body.touring{padding-bottom:220px}
+.wi-ctrl{display:flex;flex-wrap:wrap;gap:12px;align-items:end}
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:none;padding:8px 12px;font-weight:600;font-size:.86rem;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.wi-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;font-size:.86rem}
+@media (max-width:760px){.wi-cols{grid-template-columns:minmax(0,1fr)}}
+.wi-cols>div{background:var(--sunk);border-radius:8px;padding:10px;display:grid;gap:3px;align-content:start;min-width:0}
+.wi-cols .lbl{font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px}
+.inv{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.invc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px;display:grid;gap:6px;align-content:start}
+.invc h4{margin:0;font-size:.95rem}
+.invc p{margin:0;font-size:.86rem;color:var(--muted)}
+.invc .tags{display:flex;flex-wrap:wrap;gap:4px}
+.tagpick{display:flex;flex-wrap:wrap;gap:6px}
+.tagpick label{display:inline-flex;gap:5px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:.82rem;cursor:pointer;background:var(--surface)}
+.tagpick input{accent-color:var(--accent);margin:0}
+.sq{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:grid;gap:8px}
+.sq legend{font-weight:600;padding:0}
+.sq fieldset{border:0;margin:0;padding:0;display:grid;gap:6px}
+.sq label{display:flex;gap:8px;align-items:flex-start;font-size:.9rem;cursor:pointer;padding:6px 8px;border-radius:7px}
+.sq label:hover{background:var(--sunk)}
+.sq input{accent-color:var(--accent);margin-top:3px}
+.match{display:grid;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+.match.top{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.match h3{margin:0;font-family:var(--f-display)}
+.mbar{height:8px;border-radius:4px;background:var(--sunk);overflow:hidden}
+.mbar i{display:block;height:100%;background:var(--accent)}
+.dl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:1px 9px;font-size:.76rem;color:var(--muted);background:var(--surface);white-space:nowrap}
+.chip.k-ok{color:var(--ok);background:var(--ok-soft);border-color:transparent}
+.chip.k-warn{color:var(--warn);background:var(--warn-soft);border-color:transparent}
+.chip.k-bad{color:var(--bad);background:var(--bad-soft);border-color:transparent}
+.chip.k-info{color:var(--info);background:var(--info-soft);border-color:transparent}
+.chip.k-acc{color:var(--accent);background:var(--accent-soft);border-color:transparent}
+.steplabel{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-family:var(--f-display);font-size:1.05rem;font-weight:700}
+.steplabel b{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:.85rem}
+.start{padding-block:20px 4px}
+.starts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (min-width:1180px){.starts{grid-template-columns:1.1fr 0.8fr 1.1fr 0.9fr}}
+@media (max-width:760px){.starts{grid-template-columns:minmax(0,1fr)}}
+.opt{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:grid;gap:8px;align-content:start;min-width:0}
+.opt h3{margin:0;font-size:.98rem;font-weight:600}
+.opt p{margin:0;font-size:.86rem;color:var(--muted)}
+.opt.on{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.drop{border:1.5px dashed color-mix(in srgb,var(--accent) 45%,var(--line));border-radius:8px;padding:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--sunk)}
+.drop.over{background:var(--accent-soft)}
+.drop small{color:var(--muted);font-size:.8rem}
+.scen{display:flex;flex-wrap:wrap;gap:6px}
+.scen button{text-align:left;border:1px solid var(--line);background:var(--sunk);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:.84rem}
+.scen button span{display:block;font-size:.72rem;color:var(--muted)}
+.scen button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.nowshow{margin-top:10px;font-size:.86rem;color:var(--muted)}
+.nowshow b{color:var(--ink)}
+.shell{display:grid;grid-template-columns:minmax(280px,330px) minmax(0,1fr);gap:20px;padding-block:16px 48px}
+@media (max-width:920px){.shell{grid-template-columns:minmax(0,1fr)}}
+aside{display:flex;flex-direction:column;gap:14px;min-width:0}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.panel>summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.panel>summary::-webkit-details-marker{display:none}
+.panel>summary::after{content:"+";color:var(--muted);font-weight:500}
+.panel[open]>summary::after{content:"–"}
+.panel[open]>summary{margin-bottom:12px}
+.field{display:grid;gap:4px;margin-bottom:12px}
+.field label,.lbl{font-size:.82rem;font-weight:600}
+.hint{font-size:.77rem;color:var(--muted)}
+input[type=number],select,textarea{width:100%;background:var(--sunk);border:1px solid var(--line);border-radius:7px;padding:7px 9px}
+textarea{resize:vertical;min-height:84px}
+textarea.code{font-family:var(--f-mono);font-size:.8rem;min-height:150px;line-height:1.45}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:.88rem;margin-bottom:10px}
+.check input{margin-top:3px;accent-color:var(--accent)}
+.corechips{display:flex;flex-wrap:wrap;gap:6px}
+.corechips label{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:6px;padding:3px 8px;font-size:.78rem;cursor:pointer;background:var(--sunk)}
+.corechips input{accent-color:var(--accent);margin:0}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 12px;cursor:pointer;font-weight:600;font-size:.86rem}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:disabled{opacity:.55;cursor:default}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:.86rem;margin:0}
+.kv dt{color:var(--muted)} .kv dd{margin:0;font-weight:500}
+.ai-out{white-space:pre-wrap;font-size:.9rem;background:var(--sunk);border-radius:8px;padding:10px 12px;margin-top:10px}
+.ai-tag{font-size:.72rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
+.err{background:var(--bad-soft);color:var(--bad);border-radius:8px;padding:8px 10px;font-size:.86rem}
+main{min-width:0;display:flex;flex-direction:column;gap:14px}
+.answer{border-radius:var(--r);padding:18px;border:1px solid var(--line);background:var(--surface);display:grid;gap:10px;border-top:5px solid var(--muted)}
+.answer.ok{border-top-color:var(--ok)} .answer.late{border-top-color:var(--warn)} .answer.advisor{border-top-color:var(--bad)}
+.answer .kicker{font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.answer.ok .kicker{color:var(--ok)} .answer.late .kicker{color:var(--warn)} .answer.advisor .kicker{color:var(--bad)}
+.answer h2{font-family:var(--f-display);font-size:1.5rem;margin:0;letter-spacing:-.02em;text-wrap:balance;line-height:1.2}
+.answer p{margin:0;max-width:75ch}
+.answer ul{margin:0;padding-left:18px}
+.next{display:grid;gap:6px;background:var(--sunk);border-radius:8px;padding:12px}
+.next .lbl{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.next .list{display:flex;flex-wrap:wrap;gap:6px}
+.next .c{background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:4px 9px;font-size:.84rem}
+.next .c.ask{border-style:dashed;color:var(--warn)}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.86rem;color:var(--muted)}
+.facts b{color:var(--ink);font-variant-numeric:tabular-nums}
+.alt{background:var(--sunk);border-radius:8px;padding:10px 12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:9px 12px;font-weight:600;font-size:.88rem;color:var(--muted);cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tabs .n{font-family:var(--f-mono);font-size:.72rem;margin-left:5px;color:var(--bad)}
+.tabintro{margin:14px 0 0;color:var(--muted);font-size:.9rem;max-width:75ch}
+.legend{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.8rem}
+details.how2{margin-top:10px;font-size:.84rem}
+details.how2 summary{cursor:pointer;color:var(--accent);font-weight:600}
+details.how2 dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:10px 0 0}
+details.how2 dd{margin:0;color:var(--muted)}
+.terms{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin-top:14px}
+.term{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;position:relative}
+.term header{display:flex;justify-content:space-between;align-items:baseline;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--sunk)}
+.term header b{font-family:var(--f-display);font-size:1rem}
+.term header span{font-family:var(--f-mono);font-size:.78rem;color:var(--muted)}
+.term.first header{background:var(--accent-soft)}
+.term.abroad header{background:var(--info-soft)}
+.draft .term::after{content:"DRAFT — NOT VALID FOR THIS STUDENT";position:absolute;right:8px;bottom:6px;font-size:.62rem;letter-spacing:.08em;color:var(--bad);font-weight:700}
+.course{border-bottom:1px solid var(--line)}
+.course:last-child{border-bottom:0}
+.course summary{list-style:none;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;padding:9px 12px;cursor:pointer}
+.course summary::-webkit-details-marker{display:none}
+.course summary:hover{background:var(--sunk)}
+.course .code{font-family:var(--f-mono);font-size:.8rem;font-weight:500}
+.course .ttl{font-size:.88rem;grid-column:1}
+.course .cr{grid-row:1/3;grid-column:2;font-family:var(--f-mono);font-size:.78rem;color:var(--muted);align-self:center}
+.course .tags{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px;margin-top:3px}
+.course .tags .chip{font-size:.7rem;padding:0 7px}
+.course .why{padding:4px 12px 12px;font-size:.84rem;display:grid;gap:4px;color:var(--muted)}
+.course .why b{color:var(--ink);font-weight:600}
+.course.k-ask summary{background:color-mix(in srgb,var(--warn-soft) 60%,transparent)}
+.k-free .code,.k-core .code,.k-abroad .code,.k-ask .code{color:var(--muted)}
+.section{padding:14px 0 0}
+.section h3{font-family:var(--f-display);font-size:1.05rem;margin:0 0 8px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;background:var(--sunk)}
+tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums;font-family:var(--f-mono)}
+.hot{background:var(--warn-soft)}
+.checks{display:grid;gap:8px}
+.ck{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.ck .ic{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.8rem}
+.ck.pass .ic{background:var(--ok-soft);color:var(--ok)} .ck.warn .ic{background:var(--warn-soft);color:var(--warn)} .ck.fail .ic{background:var(--bad-soft);color:var(--bad)} .ck.info .ic{background:var(--info-soft);color:var(--info)}
+.ck b{font-weight:600} .ck p{margin:2px 0 0;font-size:.85rem;color:var(--muted);overflow-wrap:anywhere}
+.handoff{white-space:pre-wrap;font-family:var(--f-mono);font-size:.8rem;background:var(--sunk);border:1px solid var(--line);border-radius:8px;padding:12px;max-height:340px;overflow:auto}
+.flow{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);gap:10px;overflow-x:auto;padding-bottom:6px}
+.flow .col{display:grid;gap:6px;align-content:start}
+.flow .col h4{margin:0;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.node{border:1px solid var(--line);border-radius:7px;padding:6px 8px;background:var(--surface);font-size:.78rem}
+.node .mono{font-weight:500}
+.node.done{background:var(--ok-soft);border-color:transparent}
+.node.ip{background:var(--info-soft);border-color:transparent}
+.node.retake{background:var(--bad-soft);border-color:transparent}
+.node.sharp{outline:2px solid var(--warn)}
+.node small{display:block;color:var(--muted)}
+.cmp td:first-child{font-weight:600}
+.cmp .better{color:var(--ok);font-weight:600}
+.cmp .worse{color:var(--bad);font-weight:600}
+.callout{background:var(--accent-soft);border-radius:var(--r);padding:12px 14px;font-size:.9rem}
+.callout b{font-family:var(--f-display)}
+.issues{margin:0;padding-left:18px;display:grid;gap:6px;font-size:.88rem}
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:700px){.how{grid-template-columns:minmax(0,1fr)}}
+.how div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px;font-size:.86rem}
+.how b{display:block;font-family:var(--f-display);margin-bottom:4px}
+.empty{padding:20px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:var(--r)}
+@media (prefers-reduced-motion:no-preference){.term,.ck,.answer{animation:rise .25s ease both}}
+@keyframes rise{from{transform:translateY(4px)}to{transform:none}}
+</style>
+
+<div class="top"><div class="wrap">
+  <h1>Graduation <span>Blueprint</span></h1>
+  <p>See your path to graduation before you register.</p>
+  <span class="meta" id="dataver"></span>
+  <button class="btn primary demo-btn" id="demoBtn" type="button">Guided demo</button>
+  <nav class="viewnav" id="viewnav" aria-label="Sections"></nav>
+</div></div>
+<div id="view-planner">
+
+<section class="wrap start">
+  <p class="steplabel"><b>1</b> Start with your record</p>
+  <div class="starts">
+    <div class="opt" id="optUpload">
+      <h3>Upload your degree audit</h3>
+      <p>In my.TCU, open your Academic Advising Report and save it as a PDF. It is read inside your browser, and your name and student ID are discarded.</p>
+      <label class="drop" id="drop"><input type="file" id="auditFile" accept="application/pdf,.pdf" hidden><span class="btn primary">Choose PDF</span><small>or drop it here</small></label>
+      <details><summary class="hint" style="cursor:pointer">PDF not working? Paste the report text instead</summary>
+        <div class="field" style="margin-top:8px"><textarea id="auditPaste" class="code" placeholder="Select all text in the report, copy, and paste here."></textarea></div>
+        <button class="btn" id="auditPasteBtn">Read pasted report</button></details>
+      <div id="uploadMsg"></div>
+    </div>
+    <div class="opt" id="optSample">
+      <h3>Try a sample audit</h3>
+      <p>Riley, a made-up BIS and Finance double major who wants to finish in Spring 2027. Same report layout as the real thing.</p>
+      <div><button class="btn" id="sampleBtn">Load sample audit</button></div>
+    </div>
+    <div class="opt" id="optFresh">
+      <h3>I'm a first-year: no advising report yet</h3>
+      <p>Start from scratch with your entering term and intended major. Not sure of a major? Pick Undecided or take the major survey.</p>
+      <div class="row2">
+        <div class="field" style="margin:0"><label for="frTerm">I started</label><select id="frTerm"><option value="F2026">Fall 2026 (now)</option><option value="S2027">Spring 2027</option><option value="F2027">Fall 2027</option></select></div>
+        <div class="field" style="margin:0"><label for="frMajor">Intended major</label><select id="frMajor"></select></div>
+      </div>
+      <details><summary class="hint" style="cursor:pointer">Add courses you're taking now (optional)</summary>
+        <div class="field" style="margin-top:6px"><textarea id="frCourses" class="code" style="min-height:70px" placeholder="One per line, e.g.&#10;ECON 10223&#10;MATH 10283"></textarea></div></details>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" id="frGo" type="button">Build my four-year plan</button><button class="btn" id="frSurvey" type="button">Take the major survey</button></div>
+    </div>
+    <div class="opt" id="optScen">
+      <h3>Explore case scenarios</h3>
+      <p>Finance students built from the catalog, one per judging scenario.</p>
+      <div class="scen" id="scen"></div>
+    </div>
+  </div>
+  <p class="nowshow" id="nowshow"></p>
+</section>
+
+<div class="wrap shell">
+<aside>
+  <section class="panel">
+    <p class="steplabel" style="font-size:1rem"><b>2</b> Your goals</p>
+    <div class="row2">
+      <div class="field"><label for="target">Finish by</label><select id="target"></select></div>
+      <div class="field"><label for="maxCredits">Most hours a term</label><input id="maxCredits" type="number" min="9" max="18" step="1"></div>
+    </div>
+    <div class="field"><label for="career">Career interest</label><select id="career"></select><span class="hint" id="careerWhy"></span></div>
+    <div id="catGoals">
+      <div class="field"><label for="major">Major</label><select id="major"></select></div>
+      <div class="field"><label for="abroad">Semester abroad</label><select id="abroad"></select></div>
+      <div class="field"><label for="minorSel">Add a minor or certificate</label><select id="minorSel"></select><span class="hint" id="minorWho"></span></div>
+      <label class="check" id="overlapRow"><input type="checkbox" id="allowOverlap"> Let minor courses also count toward my major <span class="hint">(only if your advisor confirms)</span></label>
+    </div>
+  </section>
+
+  <details class="panel" id="recordPanel">
+    <summary id="recordSummary">Your record</summary>
+    <div id="auditRecord"></div>
+    <div id="catRecord">
+      <div class="field"><label for="catalogYear">Catalog year</label><select id="catalogYear"></select></div>
+      <label class="check"><input type="checkbox" id="declared"> Finance major declared</label>
+      <div class="field"><label for="transcript">Courses and grades</label><textarea id="transcript" class="code" spellcheck="false"></textarea>
+        <span class="hint">One per line, like <span class="mono">FINA 30153 B+</span>. IP = in progress, T = transfer.</span></div>
+      <div class="field"><span class="lbl">Other completed hours</span>
+        <div class="row3">
+          <div><label class="hint" for="otherHours">Total</label><input id="otherHours" type="number" min="0" step="1"></div>
+          <div><label class="hint" for="otherUpper">Upper-level</label><input id="otherUpper" type="number" min="0" step="1"></div>
+          <div><label class="hint" for="otherTransfer">Transfer</label><input id="otherTransfer" type="number" min="0" step="1"></div>
+        </div></div>
+      <div class="field"><span class="lbl">TCU Core categories done</span><div class="corechips" id="corechips"></div></div>
+      <div class="field"><span class="lbl">Credit by exam (AP, IB, CLEP)</span>
+        <div id="examList" class="examlist"></div>
+        <div class="examadd"><select id="exType" aria-label="Exam type"><option>AP</option><option>IB</option><option>CLEP</option></select>
+          <select id="exName" aria-label="Exam"></select>
+          <select id="exScore" aria-label="Score"></select><input id="exClep" type="number" min="20" max="80" placeholder="Score" aria-label="CLEP score" hidden>
+          <button class="btn" id="exAdd" type="button">Add</button></div>
+        <span class="hint">Scores from high school. The planner looks up what TCU awards for each one.</span></div>
+    </div>
+  </details>
+
+  <details class="panel" id="aiPanel">
+    <summary>Describe yourself instead</summary>
+    <div class="field"><textarea id="freeText" placeholder="e.g. I'm a sophomore in finance. B+ in Fundamentals of Accounting, A in stats, taking Financial Management now. I want consulting and to graduate May 2029."></textarea>
+      <span class="hint">Claude turns this into profile updates for the Finance planner. Nothing changes until you apply them.</span></div>
+    <button class="btn primary" id="parseBtn">Read with Claude</button>
+    <div id="parseOut"></div>
+    <p class="hint" id="aiOff" hidden style="margin:8px 0 0">Claude is unavailable in this view. Everything else still works.</p>
+  </details>
+</aside>
+
+<main>
+  <p class="steplabel" style="margin:0"><b>3</b> Your plan</p>
+  <div id="answer"></div>
+  <div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div id="tabbody"></div>
+  </div>
+</main>
+</div>
+</div>
+<div class="wrap viewpad" id="view-survey" hidden style="max-width:900px"></div>
+<div class="wrap viewpad" id="view-programs" hidden></div>
+<div class="wrap viewpad" id="view-findings" hidden></div>
+<div class="wrap viewpad" id="view-validation" hidden></div>
+<div class="wrap viewpad" id="view-cost" hidden></div>
+
+<div class="tour" id="tour" hidden role="dialog" aria-label="Guided demo">
+  <div class="tour-in"><div class="tour-top"><span class="ai-tag" id="tourStep"></span><button class="btn" id="tourX" type="button" aria-label="Close demo">Exit</button></div>
+  <h3 id="tourTitle"></h3><p id="tourText"></p>
+  <div class="tour-nav"><button class="btn" id="tourBack" type="button">Back</button><span class="hint" id="tourRubric"></span><button class="btn primary" id="tourNext" type="button">Next</button></div></div>
+</div>
+<script type="application/json" id="catalog-data">{{DATA}}</script>
+<script type="application/json" id="student-data">{{STUDENTS}}</script>
+<script type="text/plain" id="sample-audit">{{SAMPLE}}</script>
+<script type="application/json" id="course-list">{{COURSES}}</script>
+<script>
+{{ENGINE}}
+</script>
+<script>
+{{UI}}
+</script>
+<script>
+{{VIEWS}}
+</script>

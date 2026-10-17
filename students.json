@@ -1,0 +1,148 @@
+{
+ "maya": {
+  "id": "maya",
+  "name": "Maya R.",
+  "tag": "On time + minor",
+  "blurb": "Sophomore, Finance, interested in consulting. Wants to graduate Spring 2029 and is weighing BIS courses.",
+  "catalogYear": "2025-26",
+  "declared": true,
+  "startTerm": "S2027",
+  "target": "S2029",
+  "maxCredits": 15,
+  "career": "consulting",
+  "abroad": [],
+  "minor": null,
+  "otherHours": 18,
+  "otherUpper": 0,
+  "otherTransfer": 0,
+  "coreDone": [
+   "HUM1",
+   "HUM2",
+   "SSC3",
+   "NSC1",
+   "FA",
+   "RT",
+   "LT"
+  ],
+  "transcript": "ECON 10223 A\nECON 10233 B+\nENGL 10803 A-\nENGL 20803 B\nMATH 10283 B\nINSC 20153 A\nACCT 20353 B+\nINSC 20263 B\nENTR 20263 A-\nFINA 30153 IP\nACCT 30153 IP\nMARK 30153 IP\nINSC 30313 IP",
+  "major": "FINA",
+  "exams": []
+ },
+ "jordan": {
+  "id": "jordan",
+  "name": "Jordan T.",
+  "tag": "Prerequisite bottleneck",
+  "blurb": "Junior, Finance, wants International Finance and a Fall 2027 semester abroad. Earned a D in Investments I.",
+  "catalogYear": "2025-26",
+  "declared": true,
+  "startTerm": "S2027",
+  "target": "S2028",
+  "maxCredits": 15,
+  "career": "international",
+  "abroad": [
+   "F2027"
+  ],
+  "minor": null,
+  "otherHours": 30,
+  "otherUpper": 0,
+  "otherTransfer": 0,
+  "coreDone": [
+   "HUM1",
+   "HUM2",
+   "HUM3",
+   "SSC3",
+   "OC",
+   "NSC1",
+   "NSC2",
+   "FA",
+   "RT",
+   "LT",
+   "HT",
+   "CSV"
+  ],
+  "transcript": "ECON 10223 B\nECON 10233 B\nENGL 10803 B+\nENGL 20803 B\nMATH 10283 C+\nINSC 20153 B\nACCT 20353 B\nINSC 20263 B-\nENTR 20263 B+\nFINA 30153 B\nFINA 30203 B-\nFINA 30213 D\nACCT 30153 C+\nINSC 30801 A\nACCT 30253 IP\nINSC 30313 IP\nMARK 30153 IP\nMANA 30250 IP\nMANA 30350 IP",
+  "major": "FINA",
+  "exams": []
+ },
+ "sam": {
+  "id": "sam",
+  "name": "Sam K.",
+  "tag": "AI gets it wrong",
+  "blurb": "Transfer student on an older catalog year, with community-college credit that does not map cleanly.",
+  "catalogYear": "2024-25",
+  "declared": false,
+  "startTerm": "S2027",
+  "target": "S2028",
+  "maxCredits": 15,
+  "career": "investments",
+  "abroad": [],
+  "minor": null,
+  "otherHours": 24,
+  "otherUpper": 0,
+  "otherTransfer": 24,
+  "coreDone": [
+   "HUM1",
+   "HUM2",
+   "SSC3",
+   "OC",
+   "NSC1",
+   "NSC2",
+   "FA"
+  ],
+  "transcript": "ECON 10223 T\nECON 10233 T\nENGL 10803 T\nMATH 10283 C\nINSC 20153 C-\nACCT 20353 B-\nINSC 20263 C\nBUSN 2013 T\nFINA 3XXX T\nFINA 30153 C+\nENTR 20263 B",
+  "major": "FINA",
+  "exams": []
+ },
+ "noah": {
+  "id": "noah",
+  "name": "Noah P.",
+  "tag": "First year + AP credit",
+  "blurb": "First-year business student in his first semester, bringing six AP scores. Intends to major in Finance and finish in four years.",
+  "catalogYear": "2025-26",
+  "declared": false,
+  "startTerm": "S2027",
+  "target": "S2030",
+  "maxCredits": 15,
+  "career": "investments",
+  "abroad": [],
+  "minor": null,
+  "major": "FINA",
+  "otherHours": 0,
+  "otherUpper": 0,
+  "otherTransfer": 0,
+  "coreDone": [],
+  "exams": [
+   {
+    "type": "AP",
+    "exam": "Calculus AB",
+    "score": "4"
+   },
+   {
+    "type": "AP",
+    "exam": "Economics: Microeconomics",
+    "score": "5"
+   },
+   {
+    "type": "AP",
+    "exam": "Economics: Macroeconomics",
+    "score": "3"
+   },
+   {
+    "type": "AP",
+    "exam": "English Language and Composition",
+    "score": "4"
+   },
+   {
+    "type": "AP",
+    "exam": "Statistics",
+    "score": "5"
+   },
+   {
+    "type": "AP",
+    "exam": "History: American",
+    "score": "4"
+   }
+  ],
+  "transcript": "INSC 20153 IP\nENTR 20263 IP\nCOMM 10123 IP"
+ }
+}

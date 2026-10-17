@@ -1,0 +1,85 @@
+SAMPLE — SYNTHETIC STUDENT FOR DEMONSTRATION
+Academic Advising Report
+For Sample,Riley (000000000)
+Program Requirement Term Req. Status Expected Grad Term
+Undergraduate Career 2024 Fall Term Not Satisfied
+Business - Undergraduate Program 2024 Fall Term Not Satisfied 2027 Spring Term
+Business Info Systems BBA Major 2024 Fall Term Not Satisfied
+Finance Major 2025 Spring Term Not Satisfied
+GPA TCU Earned Transferred Test Credit Other Credit Cum In Prog.
+3.712 63.00 21.00 24.00 0.00 108.00 12.00
+
+BUSINESS, LOWER-DIVISION REQS
+Satisfied:BUSINESS SCHOOL UNDERGRADUATE REQUIREMENTS - LDR and B Core (RG 3001)
+Business LDR GPA Requirement
+Satisfied: LDR GPA Requirement
+GPA: 2.750 required, 3.640 completed
+
+BUSINESS SCHOOL CORE REQS
+Not Satisfied:BUSINESS SCHOOL CORE REQUIREMENTS (RG-1309 )
+B Core Requirement
+Not Satisfied: B Core Requirement (RQ li 30003)
+Units: 37.00 required, 34.00 used, 3.00 needed
+Courses Used
+
+BBA-BUSINESS INFORMATION SYSTEMS
+Not Satisfied:BUSINESS INFORMATION SYSTEMS MAJOR REQUIREMENTS & GPA FOR BACHELOR OF BUSINESS ADMINISTRATION DEGREE (RG-141)
+Business Information System Major, 21 hr
+Not Satisfied: Business Information System Major Requirement for BBA: 21 hr
+Units: 21.00 required, 18.00 used, 3.00 needed
+Courses Used
+INSC 30283 has been directed to this line.
+INSC 30283 - INSC 30833
+Entered by: ADVISOR
+
+FINA SECOND MAJOR, w/o ACCT
+Not Satisfied:FINA, SECOND MAJOR, without ACCT Degree
+FINA-BBA Major Requirements, 18 hrs
+Not Satisfied: FINA-BBA Major Requirements, 18 hrs
+Units: 18.00 required, 12.00 used, 6.00 needed
+Courses Used
+FINA-BBA Major Req, Selection 6 hrs
+Not Satisfied: FINA-BBA Major Requirements, Selection 6 hrs
+Units: 6.00 required, 3.00 used, 3.00 needed
+
+UGRD UPPER-DIVISION 42 HRS
+Satisfied:UNIVERSITY UNDERGRAD DEGREE REQUIREMENT: UPPER-DIVISION 42 HOURS (RG 3024)
+Upper-Division UGRD 42 Hours
+Satisfied: Upper-Division UGRD 42 Hours (RQ li 30009)
+Units: 42.00 required, 49.00 used
+
+Course History
+Term Subject Catalog Nbr Title Grade Units Type
+24 Fall ECON 10223 Intro Microeconomics T 3.00 TE
+24 Fall ECON 10233 Intro Macroeconomics T 3.00 TE
+24 Fall ENGL 10803 Intro Comp:Writing as Inquiry T 3.00 TE
+24 Fall MATH 10283 Applied Calculus T 3.00 TE
+24 Fall HIST 10613 US Hist: Surv Since 1877 T 3.00 TE
+24 Fall BIOL 10003 Contemporary Issues in Biology T 3.00 TE
+24 Fall PSYC 10213 General Psychology T 3.00 TE
+24 Fall ACCT 20353 Fundamentals of Accounting B+ 3.00 EN
+24 Fall BUSI 10153 Business in Society A 3.00 EN
+24 Fall ENGL 20803 Intermed Comp:Writing Argument A- 3.00 EN
+24 Fall RELI 10013 Understanding Religion A 3.00 EN
+24 Fall INSC 20263 Business Information Systems B+ 3.00 EN
+25 Spring INSC 20153 Statistical Analysis A 3.00 EN
+25 Spring ENTR 20153 Entr&Business Reg Environment A- 3.00 EN
+25 Spring COMM 10123 Communicating Effectively A 3.00 EN
+25 Spring MARK 30153 Marketing Management B+ 3.00 EN
+25 Spring ARTH 10043 Art History Survey A 3.00 EN
+25 Summer BUSI 30383 Global Busi with Ethical Lens A 3.00 EN
+25 Fall ACCT 30153 Financial Reporting I B 3.00 EN
+25 Fall FINA 30153 Financial Management A- 3.00 EN
+25 Fall INSC 30313 Supply Chain Management A 3.00 EN
+25 Fall INSC 30723 Systems Planning & Proc Analys A 3.00 EN
+25 Fall INSC 30801 Business Applications in Excel A 1.00 EN
+25 Fall INSC 30823 Data Mgmt-Bus Info Systems A- 3.00 EN
+26 Spring MANA 30153 Organizational Mana A 3.00 EN
+26 Spring FINA 30203 Financial Institutions B+ 3.00 EN
+26 Spring FINA 30213 Investments A- 3.00 EN
+26 Spring INSC 30283 Deep Learning Technologies A 3.00 EN
+26 Spring INSC 30853 Fundamentals of Cybersecurity A 3.00 EN
+26 Fall ACCT 30253 Financial Reporting II 3.00 IP
+26 Fall INSC 40813 Bus Info Systems Capstone 3.00 IP
+26 Fall INSC 40843 Business Intelligence & Analytics 3.00 IP
+26 Fall FINA 30223 Financial Modeling 3.00 IP
